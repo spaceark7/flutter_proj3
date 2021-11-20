@@ -9,6 +9,6 @@ class GetTopRatedTvs {
   GetTopRatedTvs(this.repository);
 
   Future<Either<Failure, List<TvSeries>>> execute() {
-    return repository.getTopRated();
+    return repository.getTopRatedTv();
   }
 }

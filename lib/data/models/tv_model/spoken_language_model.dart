@@ -1,7 +1,10 @@
 import 'dart:convert';
 
-class SpokenLanguage {
-    SpokenLanguage({
+import 'package:ditonton/domain/entities/TV%20Series/spoken_language.dart';
+import 'package:equatable/equatable.dart';
+
+class SpokenLanguageModel extends Equatable {
+    SpokenLanguageModel({
         required this.englishName,
         required this.iso6391,
         required this.name,
@@ -11,11 +14,11 @@ class SpokenLanguage {
     final String iso6391;
     final String name;
 
-    factory SpokenLanguage.fromRawJson(String str) => SpokenLanguage.fromJson(json.decode(str));
+    factory SpokenLanguageModel.fromRawJson(String str) => SpokenLanguageModel.fromJson(json.decode(str));
 
     String toRawJson() => json.encode(toJson());
 
-    factory SpokenLanguage.fromJson(Map<String, dynamic> json) => SpokenLanguage(
+    factory SpokenLanguageModel.fromJson(Map<String, dynamic> json) => SpokenLanguageModel(
         englishName: json["english_name"],
         iso6391: json["iso_639_1"],
         name: json["name"],
@@ -26,4 +29,18 @@ class SpokenLanguage {
         "iso_639_1": iso6391,
         "name": name,
     };
+
+  SpokenLanguage toEntity() {
+    return SpokenLanguage(
+      englishName: this.englishName,
+      iso6391: this.iso6391,
+      name: this.name,
+    );
+  }
+  @override
+  List<Object> get props => [
+    englishName,
+    iso6391,
+    name,
+  ];
 }

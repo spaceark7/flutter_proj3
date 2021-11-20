@@ -1,10 +1,9 @@
 import 'dart:convert';
-
-import 'package:ditonton/domain/entities/TV%20Series/networks.dart';
+import 'package:ditonton/domain/entities/TV%20Series/production_company.dart';
 import 'package:equatable/equatable.dart';
 
-class NetworkModel extends Equatable {
-    NetworkModel({
+class ProductionCompaniesModel extends Equatable {
+    ProductionCompaniesModel({
         required this.name,
         required this.id,
         required this.logoPath,
@@ -16,11 +15,11 @@ class NetworkModel extends Equatable {
     final String logoPath;
     final String originCountry;
 
-    factory NetworkModel.fromRawJson(String str) => NetworkModel.fromJson(json.decode(str));
+    factory ProductionCompaniesModel.fromRawJson(String str) => ProductionCompaniesModel.fromJson(json.decode(str));
 
     String toRawJson() => json.encode(toJson());
 
-    factory NetworkModel.fromJson(Map<String, dynamic> json) => NetworkModel(
+    factory ProductionCompaniesModel.fromJson(Map<String, dynamic> json) => ProductionCompaniesModel(
         name: json["name"],
         id: json["id"],
         logoPath: json["logo_path"] == null ? null : json["logo_path"],
@@ -34,8 +33,8 @@ class NetworkModel extends Equatable {
         "origin_country": originCountry,
     };
 
-  Network toEntity() {
-    return Network(
+  ProductionCompany toEntity() {
+    return ProductionCompany(
       name: this.name,
       id: this.id,
       logoPath: this.logoPath,

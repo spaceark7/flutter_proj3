@@ -1,40 +1,47 @@
-
-
-
 import 'dart:convert';
 
-class CreatedBy {
-    CreatedBy({
-        required this.id,
-        required this.creditId,
-        required this.name,
-        required this.gender,
-        required this.profilePath,
-    });
+import 'package:ditonton/domain/entities/TV%20Series/CreatedBy.dart';
+import 'package:equatable/equatable.dart';
 
-    final int id;
-    final String creditId;
-    final String name;
-    final int gender;
-    final String profilePath;
+class CreatedByModel extends Equatable {
+  CreatedByModel({
+    required this.id,
+    required this.creditId,
+    required this.name,
+    required this.gender,
+    required this.profilePath,
+  });
 
-    factory CreatedBy.fromRawJson(String str) => CreatedBy.fromJson(json.decode(str));
+  final int id;
+  final String creditId;
+  final String name;
+  final int gender;
+  final String profilePath;
 
-    String toRawJson() => json.encode(toJson());
+  factory CreatedByModel.fromRawJson(String str) => CreatedByModel.fromJson(json.decode(str));
 
-    factory CreatedBy.fromJson(Map<String, dynamic> json) => CreatedBy(
+  String toRawJson() => json.encode(toJson());
+
+  factory CreatedByModel.fromJson(Map<String, dynamic> json) => CreatedByModel(
         id: json["id"],
         creditId: json["credit_id"],
         name: json["name"],
         gender: json["gender"],
         profilePath: json["profile_path"],
-    );
+      );
 
-    Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toJson() => {
         "id": id,
         "credit_id": creditId,
         "name": name,
         "gender": gender,
         "profile_path": profilePath,
-    };
+      };
+
+  CreatedBy toEntity() {
+    return CreatedBy(id: this.id, creditId: this.creditId, name: this.name, gender: this.gender, profilePath: this.profilePath);
+  }
+
+  @override
+  List<Object?> get props => [id, creditId, name, gender, profilePath];
 }

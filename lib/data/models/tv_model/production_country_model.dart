@@ -1,7 +1,10 @@
 import 'dart:convert';
 
-class ProductionCountry {
-    ProductionCountry({
+import 'package:ditonton/domain/entities/TV%20Series/production_country.dart';
+import 'package:equatable/equatable.dart';
+
+class ProductionCountryModel extends Equatable {
+    ProductionCountryModel({
         required this.iso31661,
         required this.name,
     });
@@ -9,11 +12,11 @@ class ProductionCountry {
     final String iso31661;
     final String name;
 
-    factory ProductionCountry.fromRawJson(String str) => ProductionCountry.fromJson(json.decode(str));
+    factory ProductionCountryModel.fromRawJson(String str) => ProductionCountryModel.fromJson(json.decode(str));
 
     String toRawJson() => json.encode(toJson());
 
-    factory ProductionCountry.fromJson(Map<String, dynamic> json) => ProductionCountry(
+    factory ProductionCountryModel.fromJson(Map<String, dynamic> json) => ProductionCountryModel(
         iso31661: json["iso_3166_1"],
         name: json["name"],
     );
@@ -22,4 +25,13 @@ class ProductionCountry {
         "iso_3166_1": iso31661,
         "name": name,
     };
+
+  ProductionCountry toEntity() {
+    return ProductionCountry(
+      iso31661: this.iso31661,
+      name: this.name,
+    );
+  }
+  @override
+  List<Object> get props => [iso31661, name];
 }

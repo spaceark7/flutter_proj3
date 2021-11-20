@@ -9,6 +9,6 @@ class GetAiringTodayTvs {
   GetAiringTodayTvs(this.repository);
 
   Future<Either<Failure, List<TvSeries>>> execute() {
-    return repository.getAiringToday();
+    return repository.getAiringTodayTv();
   }
 }

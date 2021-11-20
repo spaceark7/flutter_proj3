@@ -2,8 +2,11 @@
 
 import 'dart:convert';
 
-class Genre {
-    Genre({
+import 'package:ditonton/domain/entities/genre.dart';
+import 'package:equatable/equatable.dart';
+
+class GenreModel extends Equatable {
+    GenreModel({
         required this.id,
         required this.name,
     });
@@ -11,17 +14,27 @@ class Genre {
     final int id;
     final String name;
 
-    factory Genre.fromRawJson(String str) => Genre.fromJson(json.decode(str));
+    factory GenreModel.fromRawJson(String str) => GenreModel.fromJson(json.decode(str));
 
     String toRawJson() => json.encode(toJson());
 
-    factory Genre.fromJson(Map<String, dynamic> json) => Genre(
+    factory GenreModel.fromJson(Map<String, dynamic> json) => GenreModel(
         id: json["id"],
         name: json["name"],
     );
+
+    Genre toEntity() {
+        return Genre(
+            id: this.id,
+            name: this.name,
+        );
+    }
 
     Map<String, dynamic> toJson() => {
         "id": id,
         "name": name,
     };
+
+    @override
+    List<Object> get props => [id, name];
 }

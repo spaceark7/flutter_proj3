@@ -2,8 +2,11 @@
 
 import 'dart:convert';
 
-class LastEpisodeToAir {
-    LastEpisodeToAir({
+import 'package:ditonton/domain/entities/TV%20Series/last_episode_air.dart';
+import 'package:equatable/equatable.dart';
+
+class LastEpisodeToAirModel extends Equatable{
+    LastEpisodeToAirModel({
         required this.airDate,
         required this.episodeNumber,
         required this.id,
@@ -27,11 +30,11 @@ class LastEpisodeToAir {
     final double voteAverage;
     final int voteCount;
 
-    factory LastEpisodeToAir.fromRawJson(String str) => LastEpisodeToAir.fromJson(json.decode(str));
+    factory LastEpisodeToAirModel.fromRawJson(String str) => LastEpisodeToAirModel.fromJson(json.decode(str));
 
     String toRawJson() => json.encode(toJson());
 
-    factory LastEpisodeToAir.fromJson(Map<String, dynamic> json) => LastEpisodeToAir(
+    factory LastEpisodeToAirModel.fromJson(Map<String, dynamic> json) => LastEpisodeToAirModel(
         airDate: DateTime.parse(json["air_date"]),
         episodeNumber: json["episode_number"],
         id: json["id"],
@@ -56,4 +59,34 @@ class LastEpisodeToAir {
         "vote_average": voteAverage,
         "vote_count": voteCount,
     };
+
+  LastEpisodeToAir toEntity() {
+    return LastEpisodeToAir(
+      airDate: this.airDate,
+      episodeNumber: this.episodeNumber,
+      id: this.id,
+      name: this.name,
+      overview: this.overview,
+      productionCode: this.productionCode,
+      seasonNumber: this.seasonNumber,
+      stillPath: this.stillPath,
+      voteAverage: this.voteAverage,
+      voteCount: this.voteCount,
+    );
+  }
+
+  @override
+  List<Object> get props => [
+        airDate,
+        episodeNumber,
+        id,
+        name,
+        overview,
+        productionCode,
+        seasonNumber,
+        stillPath,
+        voteAverage,
+        voteCount,
+    ];
+
 }

@@ -9,6 +9,6 @@ class GetLatestTvs {
   GetLatestTvs(this.repository);
 
   Future<Either<Failure, List<TvSeries>>> execute() {
-    return repository.getTvLatest();
+    return repository.getTvLatestTv();
   }
 }
