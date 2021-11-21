@@ -12,7 +12,7 @@ class ProductionCompaniesModel extends Equatable {
 
     final String name;
     final int id;
-    final String logoPath;
+    final String? logoPath;
     final String originCountry;
 
     factory ProductionCompaniesModel.fromRawJson(String str) => ProductionCompaniesModel.fromJson(json.decode(str));
@@ -43,5 +43,5 @@ class ProductionCompaniesModel extends Equatable {
   }
 
   @override
-  List<Object> get props => [name, id, logoPath, originCountry];
+  List<Object?> get props => [name, id, logoPath, originCountry];
 }

@@ -4,8 +4,12 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:ditonton/common/constants.dart';
 import 'package:ditonton/common/state_enum.dart';
 import 'package:ditonton/domain/entities/TV%20Series/tv.dart';
-import 'package:ditonton/presentation/pages/popular_movies_page.dart';
+import 'package:ditonton/presentation/pages/airing_today_page.dart';
+import 'package:ditonton/presentation/pages/on_the_air_page.dart';
+import 'package:ditonton/presentation/pages/popular_tv_page.dart';
 import 'package:ditonton/presentation/pages/search_page.dart';
+import 'package:ditonton/presentation/pages/top_rated_tv_page.dart';
+import 'package:ditonton/presentation/pages/tv_detail_page.dart';
 import 'package:ditonton/presentation/pages/watchlist_movies_page.dart';
 import 'package:ditonton/presentation/provider/tv_list_notifier.dart';
 import 'package:flutter/material.dart';
@@ -93,42 +97,9 @@ class _HomeTvPageState extends State<HomeTvPage> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              _buildSubHeading(
-                title: 'Airing Today',
-                onTap: () => Navigator.pushNamed(context, PopularMoviesPage.ROUTE_NAME),
-              ),
-              Consumer<TvListNotifier>(builder: (context, data, child) {
-                final state = data.airingTodayTvState;
-                if (state == RequestState.Loading) {
-                  return Center(
-                    child: CircularProgressIndicator(),
-                  );
-                } else if (state == RequestState.Loaded) {
-                  return TvList(data.airingTodayTv);
-                } else {
-                  return Text('Failed');
-                }
-              }),
-              
-              _buildSubHeading(
-                title: 'On The Air',
-                onTap: () => Navigator.pushNamed(context, '/home'),
-              ),
-              Consumer<TvListNotifier>(builder: (context, data, child) {
-                final state = data.onTheAirTvState;
-                if (state == RequestState.Loading) {
-                  return Center(
-                    child: CircularProgressIndicator(),
-                  );
-                } else if (state == RequestState.Loaded) {
-                  return TvList(data.onTheAirTv);
-                } else {
-                  return Text('Failed');
-                }
-              }),
-              _buildSubHeading(
+               _buildSubHeading(
                 title: 'Popular Tv Series',
-                onTap: () => Navigator.pushNamed(context, '/home'),
+                onTap: () => Navigator.pushNamed(context, PopularTvPage.routeName),
               ),
               Consumer<TvListNotifier>(builder: (context, data, child) {
                 final state = data.popularTvState;
@@ -144,7 +115,7 @@ class _HomeTvPageState extends State<HomeTvPage> {
               }),
               _buildSubHeading(
                 title: 'Top Rated Tv Series',
-                onTap: () => Navigator.pushNamed(context, '/home'),
+                onTap: () => Navigator.pushNamed(context, TopRatedTvPage.routeName),
               ),
               Consumer<TvListNotifier>(builder: (context, data, child) {
                 final state = data.topRatedTvState;
@@ -158,6 +129,41 @@ class _HomeTvPageState extends State<HomeTvPage> {
                   return Text('Failed');
                 }
               }),
+               _buildSubHeading(
+                title: 'On The Air',
+                onTap: () => Navigator.pushNamed(context, OnTheAirPage.routeName),
+              ),
+              Consumer<TvListNotifier>(builder: (context, data, child) {
+                final state = data.onTheAirTvState;
+                if (state == RequestState.Loading) {
+                  return Center(
+                    child: CircularProgressIndicator(),
+                  );
+                } else if (state == RequestState.Loaded) {
+                  return TvList(data.onTheAirTv);
+                } else {
+                  return Text('Failed');
+                }
+              }),
+              _buildSubHeading(
+                title: 'Airing Today',
+                onTap: () => Navigator.pushNamed(context, AiringTodayPage.routeName),
+              ),
+              Consumer<TvListNotifier>(builder: (context, data, child) {
+                final state = data.airingTodayTvState;
+                if (state == RequestState.Loading) {
+                  return Center(
+                    child: CircularProgressIndicator(),
+                  );
+                } else if (state == RequestState.Loaded) {
+                  return TvList(data.airingTodayTv);
+                } else {
+                  return Text('Failed');
+                }
+              }),
+              
+             
+              
             ],
           ),
         ),
@@ -206,7 +212,7 @@ class TvList extends StatelessWidget {
               onTap: () {
                 Navigator.pushNamed(
                   context,
-                  '/home',
+                  TvDetailPage.ROUTE_NAME,
                   arguments: tv.id,
                 );
               },

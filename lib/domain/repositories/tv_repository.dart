@@ -9,11 +9,11 @@ abstract class TvRepository {
   Future<Either<Failure, List<TvSeries>>> getAiringTodayTv();
   Future<Either<Failure, List<TvSeries>>> getOnTheAirTv();
   Future<Either<Failure, List<TvSeries>>> getTopRatedTv();
-
   Future<Either<Failure, List<TvSeries>>> searchTv(String query);
   Future<Either<Failure, String>> saveWatchlistTv(TvDetail tv);
   Future<Either<Failure, String>> removeWatchlistTv(TvDetail tv);
   Future<bool> isAddedToWatchlistTv(int id);
   Future<Either<Failure, TvDetail>> getTvDetail(int id);
-  Future<Either<Failure, List<TvSeries>>> getWatchlistTvs();
+  Future<Either<Failure, List<TvSeries>>> getTvRecommendations(int id);
+  Future<Either<Failure, List<TvSeries>>> getWatchlistTv();
 }

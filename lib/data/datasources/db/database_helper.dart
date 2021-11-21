@@ -29,10 +29,11 @@ class DatabaseHelper {
     final databasePath = '$path/ditonton.db';
 
     var db = await openDatabase(databasePath, version: 1, onCreate: _onCreate);
+    print(db.toString());
     return db;
   }
 
-  void _onCreate(Database db, int version) async {
+  static void _onCreate(Database db, int version) async {
     await db.execute('''
       CREATE TABLE  $_tblWatchlist (
         id INTEGER PRIMARY KEY,
@@ -41,8 +42,7 @@ class DatabaseHelper {
         posterPath TEXT
       );
     ''');
-
-     await db.execute('''
+    await db.execute('''
       CREATE TABLE  $_tvTblWatchlist (
         id INTEGER PRIMARY KEY,
         name TEXT,
@@ -56,7 +56,7 @@ class DatabaseHelper {
     final db = await database;
     return await db!.insert(_tblWatchlist, movie.toJson());
   }
- 
+
   Future<int> insertWatchlistTv(TvTable tv) async {
     final db = await database;
     return await db!.insert(_tvTblWatchlist, tv.toJson());
@@ -71,7 +71,7 @@ class DatabaseHelper {
     );
   }
 
-    Future<int> removeWatchlistTv(TvTable tv) async {
+  Future<int> removeWatchlistTv(TvTable tv) async {
     final db = await database;
     return await db!.delete(
       _tvTblWatchlist,
@@ -95,7 +95,7 @@ class DatabaseHelper {
     }
   }
 
-   Future<Map<String, dynamic>?> getTvById(int id) async {
+  Future<Map<String, dynamic>?> getTvById(int id) async {
     final db = await database;
     final results = await db!.query(
       _tvTblWatchlist,

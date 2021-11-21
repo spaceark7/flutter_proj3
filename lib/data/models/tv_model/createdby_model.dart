@@ -16,7 +16,7 @@ class CreatedByModel extends Equatable {
   final String creditId;
   final String name;
   final int gender;
-  final String profilePath;
+  final String? profilePath;
 
   factory CreatedByModel.fromRawJson(String str) => CreatedByModel.fromJson(json.decode(str));
 

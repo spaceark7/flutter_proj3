@@ -13,12 +13,6 @@ class TvListNotifier extends ChangeNotifier {
   RequestState _airingTodayTvState = RequestState.Empty;
   RequestState get airingTodayTvState => this._airingTodayTvState;
 
-  var _latestTv = <TvSeries>[];
-  List<TvSeries> get latestTv => this._latestTv;
-
-  RequestState _latestTvState = RequestState.Empty;
-  RequestState get latestTvState => this._latestTvState;
-
   var _onTheAirTv = <TvSeries>[];
   List<TvSeries> get onTheAirTv => this._onTheAirTv;
 

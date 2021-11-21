@@ -12,7 +12,7 @@ class NetworkModel extends Equatable {
 
     final String name;
     final int id;
-    final String logoPath;
+    final String? logoPath;
     final String originCountry;
 
     factory NetworkModel.fromRawJson(String str) => NetworkModel.fromJson(json.decode(str));
@@ -22,7 +22,7 @@ class NetworkModel extends Equatable {
     factory NetworkModel.fromJson(Map<String, dynamic> json) => NetworkModel(
         name: json["name"],
         id: json["id"],
-        logoPath: json["logo_path"] == null ? null : json["logo_path"],
+        logoPath: json["logo_path"],
         originCountry: json["origin_country"],
     );
 
@@ -43,5 +43,5 @@ class NetworkModel extends Equatable {
   }
 
   @override
-  List<Object> get props => [name, id, logoPath, originCountry];
+  List<Object?> get props => [name, id, logoPath, originCountry];
 }

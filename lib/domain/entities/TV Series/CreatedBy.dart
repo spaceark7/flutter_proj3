@@ -13,7 +13,7 @@ class CreatedBy extends Equatable {
   String creditId;
   String name;
   int gender;
-  String profilePath;
+  String? profilePath;
 
   @override
   List<Object?> get props => [id, creditId, name, gender, profilePath];

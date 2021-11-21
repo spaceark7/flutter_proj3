@@ -63,8 +63,6 @@ class TvRepositoryImpl implements TvRepository {
       return Left(ConnectionFailure('Failed To Connect to Network'));
     }
   }
-  
-
 
   @override
   Future<Either<Failure, TvDetail>> getTvDetail(int id) async {
@@ -77,7 +75,6 @@ class TvRepositoryImpl implements TvRepository {
       return Left(ConnectionFailure('Failed To Connect to Network'));
     }
   }
-
 
   @override
   Future<Either<Failure, List<TvSeries>>> searchTv(String query) async {
@@ -92,8 +89,8 @@ class TvRepositoryImpl implements TvRepository {
   }
 
   @override
-  Future<Either<Failure, List<TvSeries>>> getWatchlistTvs() async {
-    final result = await tvLocalDataSource.getWatchlistTvs();
+  Future<Either<Failure, List<TvSeries>>> getWatchlistTv() async {
+    final result = await tvLocalDataSource.getWatchlistTv();
     return Right(result.map((model) => model.toEntity()).toList());
   }
 
@@ -122,6 +119,16 @@ class TvRepositoryImpl implements TvRepository {
       return Left(DatabaseFailure(e.message));
     } catch (e) {
       throw e;
+    }
+  }
+
+  @override
+  Future<Either<Failure, List<TvSeries>>> getTvRecommendations(int id) async {
+    try {
+      final result = await tvRemoteDataSource.getTvRecommendations(id);
+      return Right(result.map((model) => model.toEntity()).toList());
+    } on ServerException {
+      return Left(ServerFailure('Server Not Responding'));
     }
   }
 }
