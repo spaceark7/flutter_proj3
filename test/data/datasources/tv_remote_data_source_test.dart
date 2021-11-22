@@ -65,7 +65,7 @@ void main() {
         () async {
       // arrange
       when(mockHttpClient.get(Uri.parse('$BASE_URL/tv/popular?$API_KEY')))
-          .thenAnswer((_) async =>
+          .thenAnswer((_) async =>  
               http.Response(readJson('dummy_data/airing_today.json'), 200));
       // act
       final result = await dataSource.getPopularTv();
