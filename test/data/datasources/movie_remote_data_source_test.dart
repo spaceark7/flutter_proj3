@@ -55,7 +55,7 @@ void main() {
     });
   });
 
-  group('get Popular Movies', () {
+  group('get Popular', () {
     final tMovieList =
         MovieResponse.fromJson(json.decode(readJson('dummy_data/popular.json')))
             .movieList;
