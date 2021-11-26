@@ -1,5 +1,5 @@
 import 'dart:convert';
-import 'package:ditonton/domain/entities/TV%20Series/production_company.dart';
+import 'package:ditonton/domain/entities/tv_series/production_company.dart';
 import 'package:equatable/equatable.dart';
 
 class ProductionCompaniesModel extends Equatable {

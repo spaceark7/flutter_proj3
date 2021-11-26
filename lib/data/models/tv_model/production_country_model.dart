@@ -1,6 +1,5 @@
 import 'dart:convert';
-
-import 'package:ditonton/domain/entities/TV%20Series/production_country.dart';
+import 'package:ditonton/domain/entities/tv_series/production_country.dart';
 import 'package:equatable/equatable.dart';
 
 class ProductionCountryModel extends Equatable {

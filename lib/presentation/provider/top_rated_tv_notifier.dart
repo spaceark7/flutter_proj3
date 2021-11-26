@@ -1,6 +1,6 @@
 
 import 'package:ditonton/common/state_enum.dart';
-import 'package:ditonton/domain/entities/TV%20Series/tv.dart';
+import 'package:ditonton/domain/entities/tv_series/tv.dart';
 import 'package:ditonton/domain/usecases/tv/get_top_rated.dart';
 import 'package:flutter/cupertino.dart';
 

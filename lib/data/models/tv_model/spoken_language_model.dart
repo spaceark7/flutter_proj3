@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import 'package:ditonton/domain/entities/TV%20Series/spoken_language.dart';
+import 'package:ditonton/domain/entities/tv_series/spoken_language.dart';
 import 'package:equatable/equatable.dart';
 
 class SpokenLanguageModel extends Equatable {

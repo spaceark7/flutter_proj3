@@ -1,8 +1,7 @@
 
 
 import 'dart:convert';
-
-import 'package:ditonton/domain/entities/TV%20Series/last_episode_air.dart';
+import 'package:ditonton/domain/entities/tv_series/last_episode_air.dart';
 import 'package:equatable/equatable.dart';
 
 class LastEpisodeToAirModel extends Equatable{

@@ -1,8 +1,8 @@
 
 
 
-import 'package:ditonton/domain/entities/TV%20Series/tv.dart';
-import 'package:ditonton/domain/entities/TV%20Series/tv_detail.dart';
+import 'package:ditonton/domain/entities/tv_series/tv.dart';
+import 'package:ditonton/domain/entities/tv_series/tv_detail.dart';
 import 'package:equatable/equatable.dart';
 
 class TvTable extends Equatable {

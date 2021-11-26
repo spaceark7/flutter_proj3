@@ -1,10 +1,11 @@
-import 'package:ditonton/domain/entities/TV%20Series/CreatedBy.dart';
-import 'package:ditonton/domain/entities/TV%20Series/last_episode_air.dart';
-import 'package:ditonton/domain/entities/TV%20Series/production_company.dart';
-import 'package:ditonton/domain/entities/TV%20Series/production_country.dart';
-import 'package:ditonton/domain/entities/TV%20Series/season.dart';
-import 'package:ditonton/domain/entities/TV%20Series/spoken_language.dart';
+
 import 'package:ditonton/domain/entities/genre.dart';
+import 'package:ditonton/domain/entities/tv_series/CreatedBy.dart';
+import 'package:ditonton/domain/entities/tv_series/last_episode_air.dart';
+import 'package:ditonton/domain/entities/tv_series/production_company.dart';
+import 'package:ditonton/domain/entities/tv_series/production_country.dart';
+import 'package:ditonton/domain/entities/tv_series/season.dart';
+import 'package:ditonton/domain/entities/tv_series/spoken_language.dart';
 import 'package:equatable/equatable.dart';
 
 import 'networks.dart';

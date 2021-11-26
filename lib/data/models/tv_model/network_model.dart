@@ -1,5 +1,6 @@
 import 'dart:convert';
-import 'package:ditonton/domain/entities/TV%20Series/networks.dart';
+
+import 'package:ditonton/domain/entities/tv_series/networks.dart';
 import 'package:equatable/equatable.dart';
 
 class NetworkModel extends Equatable {

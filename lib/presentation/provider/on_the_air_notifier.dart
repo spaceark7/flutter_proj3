@@ -1,7 +1,7 @@
 
 
 import 'package:ditonton/common/state_enum.dart';
-import 'package:ditonton/domain/entities/TV%20Series/tv.dart';
+import 'package:ditonton/domain/entities/tv_series/tv.dart';
 import 'package:ditonton/domain/usecases/tv/get_on_the_air.dart';
 import 'package:flutter/foundation.dart';
 

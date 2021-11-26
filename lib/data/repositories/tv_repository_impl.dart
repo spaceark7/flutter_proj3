@@ -6,8 +6,9 @@ import 'package:ditonton/common/failure.dart';
 import 'package:ditonton/data/datasources/tv_local_data_source.dart';
 import 'package:ditonton/data/datasources/tv_remote_data_source.dart';
 import 'package:ditonton/data/models/tv_model/tv_table.dart';
-import 'package:ditonton/domain/entities/TV%20Series/tv.dart';
-import 'package:ditonton/domain/entities/TV%20Series/tv_detail.dart';
+import 'package:ditonton/domain/entities/tv_series/tv.dart';
+import 'package:ditonton/domain/entities/tv_series/tv_detail.dart';
+
 import 'package:ditonton/domain/repositories/tv_repository.dart';
 
 class TvRepositoryImpl implements TvRepository {

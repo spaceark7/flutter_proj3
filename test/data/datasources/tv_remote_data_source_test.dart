@@ -1,7 +1,6 @@
 import 'dart:convert';
 import 'package:ditonton/data/datasources/tv_remote_data_source.dart';
-import 'package:ditonton/data/models/movie_detail_model.dart';
-import 'package:ditonton/data/models/movie_response.dart';
+
 import 'package:ditonton/common/exception.dart';
 import 'package:ditonton/data/models/tv_model/tv_response.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -34,7 +33,7 @@ void main() {
       when(mockHttpClient
               .get(Uri.parse('$BASE_URL/tv/airing_today?$API_KEY')))
           .thenAnswer((_) async =>
-              http.Response(readJson('dummy_data/now_playing.json'), 200));
+              http.Response(readJson('dummy_data/airing_today.json'), 200));
       // act
       final result = await dataSource.getAiringTodayTv();
       // assert

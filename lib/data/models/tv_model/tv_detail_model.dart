@@ -8,7 +8,7 @@ import 'package:ditonton/data/models/tv_model/network_model.dart';
 import 'package:ditonton/data/models/tv_model/production_company_model.dart';
 import 'package:ditonton/data/models/tv_model/production_country_model.dart';
 import 'package:ditonton/data/models/tv_model/spoken_language_model.dart';
-import 'package:ditonton/domain/entities/TV%20Series/tv_detail.dart';
+import 'package:ditonton/domain/entities/tv_series/tv_detail.dart';
 import 'package:equatable/equatable.dart';
 
 class TvDetailModel extends Equatable {

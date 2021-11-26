@@ -3,7 +3,8 @@ import 'dart:ffi';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:ditonton/common/constants.dart';
 import 'package:ditonton/common/state_enum.dart';
-import 'package:ditonton/domain/entities/TV%20Series/tv.dart';
+import 'package:ditonton/domain/entities/tv_series/tv.dart';
+
 import 'package:ditonton/presentation/pages/airing_today_page.dart';
 import 'package:ditonton/presentation/pages/on_the_air_page.dart';
 import 'package:ditonton/presentation/pages/popular_tv_page.dart';

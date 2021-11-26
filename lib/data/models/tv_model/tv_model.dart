@@ -3,7 +3,7 @@
 //     final tvDetail = tvDetailFromJson(jsonString);
 
 import 'dart:convert';
-import 'package:ditonton/domain/entities/TV%20Series/tv.dart';
+import 'package:ditonton/domain/entities/tv_series/tv.dart';
 import 'package:equatable/equatable.dart';
 
 class TvSeriesModel extends Equatable {
@@ -29,8 +29,8 @@ class TvSeriesModel extends Equatable {
   final String? backdropPath;
   final double voteAverage;
   final String overview;
-  final String firstAirDate;
-  final List<String> originCountry;
+  final String? firstAirDate;
+  final List<String>? originCountry;
   final List<int> genreIds;
   final String originalLanguage;
   final int voteCount;
@@ -49,7 +49,7 @@ class TvSeriesModel extends Equatable {
         voteAverage: json["vote_average"].toDouble(),
         overview: json["overview"],
         firstAirDate:json["first_air_date"],
-        originCountry: List<String>.from(json["origin_country"].map((x) => x)),
+        originCountry: List<String>.from(json["origin_country"]?.map((x) => x)),
         genreIds: List<int>.from(json["genre_ids"].map((x) => x)),
         originalLanguage: json["original_language"],
         voteCount: json["vote_count"],
@@ -65,7 +65,7 @@ class TvSeriesModel extends Equatable {
         "vote_average": voteAverage,
         "overview": overview,
         "first_air_date": firstAirDate,
-        "origin_country": List<dynamic>.from(originCountry.map((x) => x)),
+        "origin_country": List<dynamic>.from(originCountry!.map((x) => x)),
         "genre_ids": List<dynamic>.from(genreIds.map((x) => x)),
         "original_language": originalLanguage,
         "vote_count": voteCount,
